@@ -51,10 +51,6 @@ $(document).ready(function() {
     addStyles();
 });
 
-$("#button1").on("click", function() {console.log("from button (1)")});
-$("#button1").on("click", function() {console.log("from button (2)")});
-
-
 // Initialize Ripples
 function initializeRipples() {
     // Get all ripples buttons
