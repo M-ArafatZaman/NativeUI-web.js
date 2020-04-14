@@ -75,11 +75,14 @@ function attachRippleEventListener(elem) {
         var width = currElem.parent().width();
         var radius = currElem.parent().height();
 
-
         // Set the radius equal to higher of width and height 
         if (currElem.width() > radius) {
             radius = currElem.width();
         }
+
+        // Calculate the diagonal distance
+        var heightAndWidth_squared = Math.pow(width, 2) + Math.pow(height, 2);
+        var diagonalDistance = Math.pow(heightAndWidth_squared, 0.5);
 
         // Restore alpha to 1 and clear the canvas
         ctx.globalAlpha = 1;
@@ -111,7 +114,7 @@ function attachRippleEventListener(elem) {
             startingRadius += 5;
             
             // If the radius is over the set radius
-            if (startingRadius > (radius + 50)) {
+            if (startingRadius > (radius + diagonalDistance)) {
                 // Clear interval and set animation id to null
                 clearInterval(rippleAnimations_id);
                 rippleAnimations_id = null;
