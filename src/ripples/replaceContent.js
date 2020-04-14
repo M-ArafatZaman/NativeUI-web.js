@@ -31,6 +31,9 @@ function replaceContent(elem) {
     var canvas = elem.find(".ripples-action")[0];
     canvas.height = elem.outerHeight();
     canvas.width = elem.outerWidth();
+
+    // Set the container width and height 100%;
+    elem.find(".ripples-content-container").css({"width": "100%", "height": "100%"});
 };
 
 export default replaceContent;
