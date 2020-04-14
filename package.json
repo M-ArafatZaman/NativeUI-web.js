@@ -1,0 +1,15 @@
+{
+  "name": "nativeui-web",
+  "version": "0.1.0",
+  "description": "A library which enables native-like UI in the web",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/M-ArafatZaman/NativeUI-web.js.git"
+  },
+  "author": "Mohammad Arafat Zaman",
+  "license": "MIT"
+}
