@@ -4,7 +4,8 @@
   "description": "A library which enables native-like UI in the web",
   "main": "main.js",
   "scripts": {
-    "build": "babel src -d lib"
+    "build": "babel src -d lib",
+    "browserify": "browserify lib/NativeUI-web.js -o app.bundle.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,8 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "babel-preset-minify": "^0.5.1"
+  },
+  "dependencies": {
+    "browserify": "^16.5.1"
   }
 }

@@ -6,7 +6,7 @@ function replaceContent(elem) {
 
     // If the ripples has a ripples-dark class
     if (elem.hasClass("ripples-dark")) {
-        color = "rgba(0,0,0,0.3)";
+        color = "rgba(0,0,0,0.2)";
     }
 
     // Store padding and delete elements padding

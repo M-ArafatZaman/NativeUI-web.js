@@ -14,6 +14,13 @@ function attachRippleEventListener(elem) {
     elem.find(".ripples-content-container").on("mouseup", onMouseUp);
     elem.find(".ripples-content-container").on("click", stopPropagation);
 
+    /* 
+        The order of events are as follows
+            - First mousedown or touchstart is triggered
+            - Second mouseup or touchend is triggered
+            - Third click is triggered
+    */
+
     // Stop the event from propagating
     function stopPropagation(event) {
         event.stopImmediatePropagation();
