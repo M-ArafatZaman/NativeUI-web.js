@@ -1,3 +1,9 @@
+/*
+    Import the longest distance
+*/
+import longestDistanceCalc from './longestDistance.js';
+
+
 // Attach ripples event listener
 function attachRippleEventListener(elem) {
     // Global variables for function to share
@@ -82,14 +88,16 @@ function attachRippleEventListener(elem) {
         var width = currElem.parent().width();
         var radius = currElem.parent().height();
 
-        // Set the radius equal to higher of width and height 
+        var longestDistance = longestDistanceCalc(x, y, width, height);
+
+        /* // Set the radius equal to higher of width and height 
         if (currElem.width() > radius) {
             radius = currElem.width();
         }
 
         // Calculate the diagonal distance
         var heightAndWidth_squared = Math.pow(width, 2) + Math.pow(height, 2);
-        var diagonalDistance = Math.pow(heightAndWidth_squared, 0.5);
+        var diagonalDistance = Math.pow(heightAndWidth_squared, 0.5); */
 
         // Restore alpha to 1 and clear the canvas
         ctx.globalAlpha = 1;
@@ -100,7 +108,7 @@ function attachRippleEventListener(elem) {
 
         // Activate animation only if there isnt any from the previous one
         if (!rippleAnimations_id) {
-            rippleAnimations_id = setInterval(rippleEffect, 1000/radius);
+            rippleAnimations_id = setInterval(rippleEffect, 600/longestDistance);
         }
 
         // Ripple Effect function
@@ -121,7 +129,7 @@ function attachRippleEventListener(elem) {
             startingRadius += 5;
             
             // If the radius is over the set radius
-            if (startingRadius > (radius + diagonalDistance)) {
+            if (startingRadius > longestDistance) {
                 // Clear interval and set animation id to null
                 clearInterval(rippleAnimations_id);
                 rippleAnimations_id = null;
