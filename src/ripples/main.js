@@ -6,6 +6,10 @@
 import addStyles from './styles/styles.js';
 import replaceContent from './replaceContent.js';
 import attachRippleEventListener from './eventListener/attachRippleEventListener.js';
+import {newRippleMutationObserver} from './mutations/mutationObservers.js';
+
+// Initialize mutation
+newRippleMutationObserver();
 
 
 // Initialize Ripples
