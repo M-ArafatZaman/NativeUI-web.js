@@ -88,16 +88,9 @@ function attachRippleEventListener(elem) {
         var width = currElem.parent().width();
         var radius = currElem.parent().height();
 
+        // Set the longest distance
         var longestDistance = longestDistanceCalc(x, y, width, height);
 
-        /* // Set the radius equal to higher of width and height 
-        if (currElem.width() > radius) {
-            radius = currElem.width();
-        }
-
-        // Calculate the diagonal distance
-        var heightAndWidth_squared = Math.pow(width, 2) + Math.pow(height, 2);
-        var diagonalDistance = Math.pow(heightAndWidth_squared, 0.5); */
 
         // Restore alpha to 1 and clear the canvas
         ctx.globalAlpha = 1;
@@ -133,6 +126,11 @@ function attachRippleEventListener(elem) {
                 // Clear interval and set animation id to null
                 clearInterval(rippleAnimations_id);
                 rippleAnimations_id = null;
+
+                // Fill the canvas with the color
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = color;
+                ctx.fillRect(0, 0, width, height);
 
                 // If the "onmouseup" event is fired, fade out the background
                 if (isMouseUpDone) {
