@@ -16,8 +16,17 @@ function attachRippleEventListener(elem) {
     var fadeOutAnimation_id = null, rippleAnimations_id = null;
 
     // Attach event to the ripples container
-    elem.find(".ripples-content-container").on("mousedown", onMouseDown);
-    elem.find(".ripples-content-container").on("mouseup", onMouseUp);
+    // If the browser supports touch
+    if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+        elem.find(".ripples-content-container").on("touchstart", onMouseDown);
+        elem.find(".ripples-content-container").on("touchend", onMouseUp);
+    
+    } else {
+    // If the browser doesnt support touch
+        elem.find(".ripples-content-container").on("mousedown", onMouseDown);
+        elem.find(".ripples-content-container").on("mouseup", onMouseUp);
+    }
+    
     elem.find(".ripples-content-container").on("click", stopPropagation);
 
     /* 
@@ -68,7 +77,6 @@ function attachRippleEventListener(elem) {
 
     // On mouse down
     function onMouseDown(event) {
-
         // Reset mouseup and down
         isMouseDownDone = false, isMouseUpDone = false;
 
@@ -77,15 +85,27 @@ function attachRippleEventListener(elem) {
 
         // Get the x and y position of the pointer
         var currElem = $(this).siblings(".ripples-action");
-        var x = event.pageX - currElem.offset().left;
-        var y = event.pageY - currElem.offset().top;
-
+        
         // Find canvas and its properties
         var canvas = currElem[0];
         var ctx = canvas.getContext("2d");
         var color = currElem.attr("data-backgroundColor");
         var height = currElem.parent().height();
         var width = currElem.parent().width();
+
+        // Mouse / Touch pointer info        
+        var pointer, x, y;
+        // If the type of event is touch
+        if (event.type == "touchstart") {
+            pointer = event.touches[0];
+        
+        } else {
+        // Else if the event is not a touch event
+            pointer = event;
+        }
+
+        x = pointer.pageX - currElem.offset().left;
+        y = pointer.pageY - currElem.offset().top;
 
         // Set the longest distance
         var longestDistance = longestDistanceCalc(x, y, width, height);
