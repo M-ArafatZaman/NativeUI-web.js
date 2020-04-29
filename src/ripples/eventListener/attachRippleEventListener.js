@@ -84,13 +84,11 @@ function attachRippleEventListener(elem) {
         var canvas = currElem[0];
         var ctx = canvas.getContext("2d");
         var color = currElem.attr("data-backgroundColor");
-        var height = currElem.parent().height()
+        var height = currElem.parent().height();
         var width = currElem.parent().width();
-        var radius = currElem.parent().height();
 
         // Set the longest distance
         var longestDistance = longestDistanceCalc(x, y, width, height);
-
 
         // Restore alpha to 1 and clear the canvas
         ctx.globalAlpha = 1;
