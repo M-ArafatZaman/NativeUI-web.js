@@ -1,0 +1,59 @@
+/* Actions */
+.ripples-action {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+/* The element itself */
+.ripples {
+    position: relative;
+    overflow: hidden;
+}
+/* Ripples content container */
+.ripples-content-container {
+    display: inline-block;
+    position: relative;
+    background-color: transparent !important;
+    z-index: 3;
+}
+
+/* Custom ripples shadow */
+.ripples-btn, .ripples-shadow {
+    box-shadow: 0px 2px 5px #888888;
+    border: none !important;
+    cursor: pointer;
+}
+
+/* Custom ripples button style */
+.ripples-btn {
+    font-size: 1rem;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    padding: .375rem .75rem;
+    border: 1px solid transparent;    
+    border-radius: .25rem;
+    line-height: 1.5rem;
+    background-color: #D2D2D2;
+    transition: all 0.2s ease-in-out;
+    color: #212529;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ripples-btn:hover, .ripples-shadow:hover {
+    box-shadow: 0px 4px 6px #888888;
+}
+
+.ripples-btn:focus, .ripples-shadow:focus {
+    outline: none;
+}
+
+.ripples-no-padding {
+    padding: 0 !important;
+}

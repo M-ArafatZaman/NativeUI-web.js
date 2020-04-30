@@ -8,12 +8,13 @@
 */
 
 
-/*
-    @param x - <Number> The x coordinate of the mouse pointer
-    @param y - <Number> The y coordinate of the mouse pointer
-    @param width - <Number> The Width of the container
-    @param height - <Number> The height of the container
-*/
+/**
+ * 
+ * @param {Number} x        - The x coordinate of the mouse pointer
+ * @param {Number} y        - The y coordinate of the mouse pointer
+ * @param {Number} width    - The Width of the container
+ * @param {Number} height   - The height of the container
+ */
 function longestDistance(x, y, width, height) {
     // Calculate the distance between 2 points
     function calculateDistance(x1, y1, x2, y2) {

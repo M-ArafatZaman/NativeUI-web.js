@@ -3,9 +3,8 @@
 
     Imports all components and initializes them
 */
-import initializeRipples from './ripples/main.js';
+import {__init__ as __init__ripples} from './ripples/main.js';
 
-// On document ready, initialize
-document.addEventListener("DOMContentLoaded", function() {
-    initializeRipples();
-})
+
+// Initialize ripples
+__init__ripples();
