@@ -93,6 +93,10 @@ function attachRippleEventListener(elem) {
         var height = currElem.parent().height();
         var width = currElem.parent().width();
 
+        // Change the height and width of the canvas
+        canvas.height = height;
+        canvas.width = width;
+
         // Mouse / Touch pointer info        
         var pointer, x, y;
         // If the type of event is touch
