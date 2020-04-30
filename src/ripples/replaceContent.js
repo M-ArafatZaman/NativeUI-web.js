@@ -4,6 +4,9 @@ function replaceContent(elem) {
     var innerHTML = elem.html(); // Inner content
     var color = "rgba(255,255,255,0.5)"; // Ripples colour
 
+    var height = elem.outerHeight();
+    var width = elem.outerWidth();
+
     // If the ripples has a ripples-dark class
     if (elem.hasClass("ripples-dark")) {
         color = "rgba(0,0,0,0.2)";
@@ -29,8 +32,8 @@ function replaceContent(elem) {
     
     // Set canvas width and height
     var canvas = elem.find(".ripples-action")[0];
-    canvas.height = elem.outerHeight();
-    canvas.width = elem.outerWidth();
+    canvas.height = height;
+    canvas.width = width;
 
     // Set the container width and height 100%;
     elem.find(".ripples-content-container").css({"width": "100%", "height": "100%"});
